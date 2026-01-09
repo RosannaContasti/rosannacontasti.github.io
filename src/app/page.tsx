@@ -4,6 +4,8 @@ import TitlePage from "./title/page";
 import HorizontalSection from "./horizontal/page";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import AboutSection from "./about/page";
+import ProjectsCoverPage from "./projects/page";
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,21 +37,14 @@ export default function HomePage() {
       />
 
       {/* CONTENEDOR DE SCROLL */}
-      <section
-        ref={containerRef}
-        className="relative h-[300vh] bg-black"
-      >
+      <section ref={containerRef} className="relative h-[300vh] bg-black">
         {/* STICKY */}
         <div className="sticky top-0 h-screen overflow-hidden">
-          <motion.div
-            style={{ x }}
-            className="flex h-full w-[300vw]"
-          >
+          <motion.div style={{ x }} className="flex h-full w-[300vw]">
             <TitlePage />
-            <HorizontalSection />
-            <section className="w-screen flex items-center justify-center text-white text-6xl">
-              Otra sección
-            </section>
+            {/* <HorizontalSection /> */}
+            <AboutSection />
+            <ProjectsCoverPage />
           </motion.div>
         </div>
       </section>

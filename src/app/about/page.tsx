@@ -1,0 +1,68 @@
+"use client";
+import Image from "next/image";
+
+export default function AboutSection() {
+  return (
+    <section className="w-screen flex flex-row items-center justify-center text-white text-6xl bg-white">
+      <div className="bg-[#1b1b1b] w-1/2 h-full p-20 flex items-start justify-evenly flex-col ">
+        <div
+          className="
+    relative
+    text-[clamp(4rem,10vw,16rem)]
+    tracking-[-0.1em]
+    lg:tracking-[-0.15em]
+    align-middle
+  "
+        >
+          <span>HOLA, SOY</span>
+          <br />
+
+          {/* Contenedor SOLO de ROSANNA */}
+          <span className="relative inline-block">
+            ROSANNA
+            {/* Estrella */}
+            <Image
+              src="/star.png"
+              alt=""
+              width={200}
+              height={200}
+              className="
+      absolute
+      top-1/2
+      -right-6
+  md:-right-10
+  lg:-right-25
+      -translate-y-1/2
+      z-20
+      w-[clamp(3rem,6vw,20rem)]
+      h-auto
+    "
+              priority
+            />
+          </span>
+        </div>
+        <span className="text-[clamp(1rem,1.4vw,1.5rem)] leading-12">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </span>
+      </div>
+
+      <div className="w-1/2 h-full relative bg-black overflow-hidden">
+        <Image
+          src="/retrato.jpg"
+          alt="Rosanna"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+    </section>
+  );
+}
