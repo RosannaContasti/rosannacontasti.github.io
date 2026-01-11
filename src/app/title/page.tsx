@@ -16,7 +16,7 @@ export default function TitlePage() {
   };
 
   return (
-    <section className="w-screen p-8 flex flex-col h-screen justify-between bg-black text-white">
+    <section className="w-screen p-8 flex shrink-0 flex-col h-screen justify-between bg-black text-white">
       <div className="flex w-full justify-between p-6 font-bold">
         {/* Language switch */}
         <div className="flex gap-2 items-center text-[clamp(1rem,1.5vw,1.5rem)]">

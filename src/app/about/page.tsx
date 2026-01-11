@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="w-screen flex flex-row items-center justify-center text-white text-6xl bg-white">
+    <section className="w-screen h-screen flex shrink-0 flex-row items-center justify-center text-white text-6xl bg-white">
       <div className="bg-[#1b1b1b] w-1/2 h-full p-20 flex items-start justify-evenly flex-col ">
         <div
           className="
