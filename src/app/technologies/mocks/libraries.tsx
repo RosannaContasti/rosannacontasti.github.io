@@ -1,0 +1,45 @@
+export const skills = [
+  {
+    category: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3 (Flexbox / Grid)",
+      "Tailwind CSS",
+      "CSS Modules",
+      "Styled Components",
+      "Responsive Design",
+      "UI/UX basics",
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Sequelize ORM",
+      "PostgreSQL",
+      "Authentication (JWT / sessions)",
+      "Basic backend architecture",
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "npm / yarn",
+      "Chrome DevTools",
+      "Postman",
+      "Figma",
+      "ESLint",
+      "Prettier",
+      "Vercel",
+    ],
+  },
+];

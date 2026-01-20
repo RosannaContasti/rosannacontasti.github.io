@@ -1,49 +1,24 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import TitlePage from "./title/page";
 import AboutSection from "./about/page";
 import ProjectsCoverPage from "./projects/page";
 import SirenasAppPage from "./projects/sirenasapp/page";
 import SirenasWebAppPage from "./projects/sirenasWebApp/page";
 import CRMSirenasPage from "./projects/crmSirenas/page";
-
-// Componentes adicionales para llegar a 11 páginas
-const Page7 = () => (
-  <div className="shrink-0 w-screen h-screen flex items-center justify-center bg-gradient-to-br from-emerald-900 to-lime-900">
-    <h2 className="text-5xl font-bold text-white">Página 7</h2>
-  </div>
-);
-
-const Page8 = () => (
-  <div className="shrink-0 w-screen h-screen flex items-center justify-center bg-gradient-to-br from-lime-900 to-yellow-900">
-    <h2 className="text-5xl font-bold text-white">Página 8</h2>
-  </div>
-);
-
-const Page9 = () => (
-  <div className="shrink-0 w-screen h-screen flex items-center justify-center bg-gradient-to-br from-yellow-900 to-orange-900">
-    <h2 className="text-5xl font-bold text-white">Página 9</h2>
-  </div>
-);
-
-const Page10 = () => (
-  <div className="shrink-0 w-screen h-screen flex items-center justify-center bg-black">
-    <h2 className="text-5xl font-bold text-white">Página 10</h2>
-  </div>
-);
-
-const Page11 = () => (
-  <div className="shrink-0 w-screen h-screen flex items-center justify-center bg-gradient-to-br from-red-900 to-pink-900">
-    <h2 className="text-5xl font-bold text-white">Página Final</h2>
-  </div>
-);
+import TechnologiesCover from "./technologies/page";
+import LibrariesPage from "./technologies/libraries/librariesPage";
+import ContactCover from "./contact/page";
+import ContactInfoPage from "./contact/contactInfo/page";
+import useIsMobile from "../hooks/useIsMobile";
 
 const SECTIONS = 3.7;
 const SCROLL_SPEED = 5;
 
 export default function HomePage() {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -60,6 +35,24 @@ export default function HomePage() {
       clamp: true, // Evita que se pase del límite
     }
   );
+
+  // 🔹 MOBILE → scroll vertical normal
+  if (isMobile) {
+    return (
+      <main className="flex flex-col">
+        <TitlePage />
+        <AboutSection />
+        <ProjectsCoverPage />
+        <SirenasAppPage />
+        <SirenasWebAppPage />
+        <CRMSirenasPage />
+        <TechnologiesCover />
+        <LibrariesPage />
+        <ContactCover />
+        <ContactInfoPage />
+      </main>
+    );
+  }
 
   return (
     <>
@@ -93,11 +86,10 @@ export default function HomePage() {
             <SirenasAppPage />
             <SirenasWebAppPage />
             <CRMSirenasPage />
-            <Page7 />
-            <Page8 />
-            <Page9 />
-            <Page10 />
-            <Page11 />
+            <TechnologiesCover />
+            <LibrariesPage />
+            <ContactCover />
+            <ContactInfoPage />
           </motion.div>
         </div>
       </section>

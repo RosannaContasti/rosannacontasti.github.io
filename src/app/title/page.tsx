@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import { motion } from "framer-motion";
+import AnimatedText from "@/src/components/AnimatedText";
 
 export default function TitlePage() {
   const t = useTranslations("HomePage");
@@ -13,6 +15,36 @@ export default function TitlePage() {
   const changeLanguage = (locale: "en" | "es") => {
     document.cookie = `locale=${locale}; path=/`;
     router.refresh();
+  };
+
+  const text = "ROSANNA";
+
+  const letters = text.split("");
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.045,
+      },
+    },
+  };
+
+  const letter = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      filter: "blur(8px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -63,21 +95,43 @@ export default function TitlePage() {
   lg:gap-24
 "
       >
-        <h1
+        <AnimatedText
+          text="ROSANNA"
           className="
     relative z-10
     leading-none
-    tracking-normal
-    text-[clamp(4rem,10vw,16rem)]
+    text-[clamp(3rem,10vw,16rem)]
     md:tracking-[-0.08em]
     lg:tracking-[-0.15em]
+    font-semibold
   "
-        >
-          ROSANNA
-        </h1>
+        />
 
         {/* Star */}
-        <div
+        <motion.div
+          initial={{ scale: 0, rotate: -90, opacity: 0 }}
+          animate={{
+            scale: 1,
+            rotate: 360, // rotación lenta continua
+            opacity: 1,
+          }}
+          transition={{
+            scale: {
+              delay: 0.4, // espera a que termine ROSANNA
+              duration: 0.8,
+              ease: "easeOut",
+            },
+            opacity: {
+              delay: 0.4,
+              duration: 0.4,
+            },
+            rotate: {
+              delay: 0.4,
+              duration: 40, // MUY lento
+              repeat: Infinity,
+              ease: "linear",
+            },
+          }}
           className="
     absolute
     w-[clamp(4rem,20vw,15rem)]
@@ -91,27 +145,25 @@ export default function TitlePage() {
             fill
             className="object-contain"
             priority
-            style={{ zIndex: 10 }}
           />
-        </div>
+        </motion.div>
 
-        <h1
+        <AnimatedText
+          text="CONTASTI"
           className="
     relative
     leading-none
-    tracking-normal
-    text-[clamp(4rem,10vw,16rem)]
+    text-[clamp(3rem,10vw,16rem)]
     md:tracking-[-0.08em]
     lg:tracking-[-0.15em]
+    font-semibold
   "
-        >
-          CONTASTI
-        </h1>
+        />
       </div>
       <div className="flex w-full justify-end p-6 text-4xl font-bold">
-        <text className="text-[clamp(1rem,1.5vw,2rem)]">
+        <span className="text-[clamp(1rem,1.5vw,2rem)]">
           wwww.rosannacontasti.com
-        </text>
+        </span>
       </div>
     </section>
   );
