@@ -127,7 +127,7 @@ export default function TitlePage() {
   "
         >
           <Image
-            src="/star.png"
+            src="star.png"
             alt=""
             fill
             className="object-contain"

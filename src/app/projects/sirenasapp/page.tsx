@@ -29,7 +29,7 @@ export default function SirenasAppPage() {
 
         {/* Video */}
         <video
-          src="/sirenasapp.mov"
+          src="sirenasapp.mov"
           className="w-full h-auto"
           autoPlay
           muted

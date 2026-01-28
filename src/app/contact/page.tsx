@@ -10,7 +10,7 @@ const ContactCover = () => (
     <div className="relative flex flex-col items-center">
       {/* Estrella */}
       <Image
-        src="/star.png"
+        src="star.png"
         alt="Star"
         width={300}
         height={300}

@@ -37,7 +37,7 @@ export default function SirenasWebAppPage() {
       <div className="relative flex-1  h-screen overflow-hidden">
         {/* Imagen arriba – izquierda */}
         <img
-          src="/webSirenas.jpeg"
+          src="webSirenas.jpeg"
           alt="Web Sirenas"
           className="
       absolute
@@ -50,7 +50,7 @@ export default function SirenasWebAppPage() {
 
         {/* Imagen abajo – derecha */}
         <img
-          src="/webSirenas1.jpeg"
+          src="webSirenas1.jpeg"
           alt="Web Sirenas Detail"
           className="
       absolute

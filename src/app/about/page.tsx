@@ -108,7 +108,7 @@ export default function AboutSection() {
           <span className="relative inline-block">
             ROSANNA
             <Image
-              src="/star.png"
+              src="star.png"
               alt=""
               width={160}
               height={160}
@@ -148,7 +148,7 @@ export default function AboutSection() {
         overflow-hidden
       ">
         <Image
-          src="/retrato.jpg"
+          src="retrato.jpg"
           alt="Rosanna"
           fill
           className="object-cover object-center"
