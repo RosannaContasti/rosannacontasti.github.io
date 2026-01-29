@@ -9,21 +9,21 @@
   "AboutPage": {
     "greeting": "HOLA, SOY",
     "name": "ROSANNA",
-    "bio": "Desarrolladora de software apasionada por crear experiencias digitales excepcionales. Con experiencia en desarrollo web full-stack y diseño de interfaces, me especializo en convertir ideas en productos funcionales y atractivos."
+    "bio": "Soy desarrolladora Front-End con foco en crear interfaces claras, fluidas y agradables de usar. Me gusta transformar ideas en experiencias reales, cuidando tanto el diseño como el código que hay detrás.\nTrabajo principalmente con React, React Native y Next.js, y disfruto especialmente dar vida a los proyectos con animaciones, micro-interacciones y detalles que marcan la diferencia. Soy curiosa, constante y me gusta aprender haciendo. Vengo de trabajar en proyectos reales, colaborando con equipos y enfrentando desafíos que me ayudaron a crecer tanto a nivel técnico como profesional.\n Busco seguir evolucionando como desarrolladora, aportar valor con lo que hago y construir productos que se sientan bien desde el primer scroll."
   },
   "ProjectsPage": {
     "coverTitle": ["PROYECTOS", "DESTACADOS"],
     "sirenasApp": {
       "title": "PROYECTO\nSIRENAS\nAPP",
-      "description": "La App de Proyecto Sirenas fue desarrollada para ofrecer a los usuarios una experiencia móvil fluida e intuitiva, facilitando el acceso a contenidos, funcionalidades y comunicaciones clave del proyecto."
+      "description": "La App de Proyecto Sirenas es una aplicación móvil creada como parte del ecosistema de Proyecto Sirenas, pensada para brindar una experiencia clara y accesible a los usuarios finales del proyecto.\n\nTrabajé en el proyecto con un rol Front-End y Back-End, utilizando React Native para el desarrollo de la interfaz y participando también en la lógica del servidor.\nEn el front, me enfoqué en la construcción de pantallas, componentes reutilizables, flujos de navegación y mejoras en la experiencia de usuario.\nEn el back-end, colaboré en la creación de firmas, controllers, services y DAOs, participando en la implementación y conexión de la lógica de negocio con la aplicación móvil.\n\nEl trabajo se realizó sobre un proyecto real, en colaboración con un equipo, adaptándome a requerimientos funcionales y técnicos en constante evolución."
     },
     "sirenasWeb": {
       "title": "WEB APP SIRENAS.TV",
-      "description": "Plataforma web completa para el streaming y gestión de contenido multimedia. Desarrollada con tecnologías modernas para garantizar una experiencia de usuario óptima y escalable."
+      "description": "Sirenas.tv Web App es la aplicación web del ecosistema Proyecto Sirenas, desarrollada para ser utilizada desde navegador y pensada como un complemento directo de la app móvil.\n\nLa web app funciona como una plataforma central de acceso, donde los usuarios pueden consultar información, gestionar contenidos y operar funcionalidades clave del sistema de forma más cómoda desde desktop o tablet. Está enfocada en ofrecer una experiencia clara, rápida y responsive, manteniendo coherencia visual y funcional con la app móvil.\n\nA nivel técnico, fue desarrollada con React, consumiendo APIs REST del backend del proyecto. El trabajo incluyó tanto frontend (interfaces, flujos, componentes y experiencia de usuario) como tareas de backend, participando en la creación de controllers, services, DAOs y firmas de datos, asegurando una correcta comunicación entre la web y el servidor."
     },
     "crmSirenas": {
       "title": "CRM PROYECTO SIRENAS",
-      "description": "CRM para la gestión de clientes y ventas de Sirenas, una empresa dedicada a la venta de productos marinos. Este CRM permite a los usuarios administrar contactos, oportunidades de venta, seguimiento de interacciones y generación de informes para optimizar el proceso de ventas."
+      "description": "Proyecto Sirenas CRM es una aplicación web diseñada para la gestión interna del proyecto, permitiendo administrar, organizar y visualizar información de manera centralizada.\n\nFormé parte del desarrollo con un rol Front-End y Back-End, trabajando con React para la construcción de la interfaz web y participando en la implementación del lado del servidor.\nEn el front, desarrollé vistas, componentes reutilizables y flujos orientados a usuarios internos, priorizando claridad visual y usabilidad.\nEn el back-end, trabajé en la creación de firmas, controllers, services y DAOs, colaborando en la estructuración de la lógica de negocio y el manejo de datos.\n\nEl proyecto implicó trabajo colaborativo, iteraciones constantes y foco en la calidad tanto del código como de la experiencia final del usuario."
     }
   },
   "TechnologiesPage": {

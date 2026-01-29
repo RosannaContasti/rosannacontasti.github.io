@@ -10,34 +10,8 @@ export default function TitlePage() {
   const t = useTranslations("HomePage");
   const { locale, setLocale } = useLocale();
   const text = "ROSANNA";
+  const link = "https://rosannacontasti.github.io."
 
-  const letters = text.split("");
-
-  const container = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.045,
-      },
-    },
-  };
-
-  const letter = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      filter: "blur(8px)",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
 
   return (
     <section className="relative w-screen p-8 flex shrink-0 flex-col h-screen justify-between bg-black text-white overflow-hidden isolate">
@@ -83,7 +57,7 @@ export default function TitlePage() {
 "
       >
         <AnimatedText
-          text="ROSANNA"
+          text={text}
           className="
     relative z-10
     leading-none
@@ -99,12 +73,12 @@ export default function TitlePage() {
           initial={{ scale: 0, rotate: -90, opacity: 0 }}
           animate={{
             scale: 1,
-            rotate: 360, // rotación lenta continua
+            rotate: 360,
             opacity: 1,
           }}
           transition={{
             scale: {
-              delay: 0.4, // espera a que termine ROSANNA
+              delay: 0.4,
               duration: 0.8,
               ease: "easeOut",
             },
@@ -114,7 +88,7 @@ export default function TitlePage() {
             },
             rotate: {
               delay: 0.4,
-              duration: 40, // MUY lento
+              duration: 40,
               repeat: Infinity,
               ease: "linear",
             },
@@ -149,7 +123,7 @@ export default function TitlePage() {
       </div>
       <div className="flex w-full justify-end p-6 text-4xl font-bold">
         <span className="text-[clamp(1rem,1.5vw,2rem)]">
-          wwww.rosannacontasti.com
+          {link}
         </span>
       </div>
     </section>

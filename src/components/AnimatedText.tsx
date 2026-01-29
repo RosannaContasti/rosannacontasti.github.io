@@ -6,16 +6,27 @@ import { Variants } from "framer-motion";
 type AnimatedTextProps = {
   text: string;
   className?: string;
+  staggerDelay?: number;
+  interactive?: boolean;
+  once?: boolean;  // ← Solo animar una vez
 };
 
-export default function AnimatedText({ text, className }: AnimatedTextProps) {
+export default function AnimatedText({
+  text,
+  className,
+  staggerDelay = 0.045,
+  interactive = false,
+  once = true
+}: AnimatedTextProps) {
   const letters = text.split("");
 
   const container = {
-    hidden: {},
+    hidden: { opacity: 0 },
     visible: {
+      opacity: 1,
       transition: {
-        staggerChildren: 0.045,
+        staggerChildren: staggerDelay,
+        delayChildren: 0.1,
       },
     },
   };
@@ -32,7 +43,7 @@ export default function AnimatedText({ text, className }: AnimatedTextProps) {
       filter: "blur(0px)",
       transition: {
         duration: 0.5,
-        ease: "easeInOut",
+        ease: [0.6, 0.05, 0.01, 0.9],
       },
     },
   };
@@ -41,11 +52,21 @@ export default function AnimatedText({ text, className }: AnimatedTextProps) {
     <motion.h1
       variants={container}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"  // ← Animar cuando está en vista
+      viewport={{ once }}     // ← Solo una vez o repetir
       className={className}
     >
       {letters?.map((char, index) => (
-        <motion.span key={index} variants={letter} className="inline-block">
+        <motion.span
+          key={index}
+          variants={letter}
+          whileHover={interactive ? {
+            y: -5,
+            scale: 1.1,
+            transition: { type: "spring", stiffness: 300 }
+          } : undefined}
+          className="inline-block"
+        >
           {char === " " ? "\u00A0" : char}
         </motion.span>
       ))}

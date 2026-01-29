@@ -6,9 +6,16 @@ export default function SirenasWebAppPage() {
   const t = useTranslations("ProjectsPage.sirenasWeb");
 
   return (
-
-
-    <section className="relative flex flex-row shrink-0 w-screen h-screen justify-between bg-[#fcb9c0] overflow-hidden isolate">
+    <section className="relative 
+  flex 
+  flex-col lg:flex-row     
+  shrink-0 
+  w-screen 
+  h-auto lg:h-screen       
+  justify-between 
+  bg-[#fcb9c0] 
+  overflow-hidden 
+  isolate">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Círculos decorativos */}
@@ -42,12 +49,13 @@ export default function SirenasWebAppPage() {
       {/* Contenedor de texto - lado izquierdo */}
       <div className="
         relative z-10
-        flex 
-        flex-col 
-        w-1/3 
-        h-screen 
-        justify-between 
-        p-12
+  flex 
+  flex-col 
+  w-full lg:w-1/3        
+  h-auto lg:h-screen      
+  justify-between 
+  p-6 py-8 lg:p-12        
+  gap-6 lg:gap-0  
       ">
         {/* Parte superior - Descripción */}
         <motion.div
@@ -158,10 +166,12 @@ export default function SirenasWebAppPage() {
 
       {/* Contenedor de imágenes - lado derecho */}
       <div className="
-        relative
-        flex-1
-        h-screen
-        overflow-hidden
+      relative
+  flex-1
+  h-auto lg:h-screen       
+  min-h-[60vh] lg:min-h-0  
+  overflow-hidden
+  py-8 lg:py-0   
       ">
         {/* Grid decorativo de fondo */}
         <div className="absolute inset-0 opacity-[0.03]">

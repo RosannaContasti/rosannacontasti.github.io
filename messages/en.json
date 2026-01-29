@@ -9,7 +9,7 @@
   "AboutPage": {
     "greeting": "HI, I'M",
     "name": "ROSANNA",
-    "bio": "Software developer passionate about creating exceptional digital experiences. With experience in full-stack web development and interface design, I specialize in turning ideas into functional and attractive products."
+    "bio": "I’m a Front-End Developer focused on building clear, smooth, and enjoyable user interfaces. I love turning ideas into real experiences, taking care of both the design and the code behind them. I mainly work with React, React Native, and Next.js, and I especially enjoy bringing projects to life through animations, micro-interactions, and details that truly make a difference. \nI’m curious, consistent, and I enjoy learning by doing. I’ve worked on real projects, collaborating with teams and tackling challenges that helped me grow both technically and professionally. My goal is to keep evolving as a developer, add value through my work, and build products that feel good from the very first scroll."
   },
   "ProjectsPage": {
     "coverTitle": ["FEATURED", "PROJECTS"],

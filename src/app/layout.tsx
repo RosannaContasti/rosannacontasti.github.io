@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
+import MinimalCursor from "../components/MinimalCursor";
 
 export default function RootLayout({
   children,
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body>
+      <MinimalCursor /> 
         <NextIntlClientProvider key={key} locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

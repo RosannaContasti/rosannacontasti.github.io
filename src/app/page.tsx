@@ -87,16 +87,16 @@ export default function HomePage() {
           <section className="h-screen snap-start snap-always">
             <TitlePage />
           </section>
-          <section className="h-screen snap-start snap-always">
+          <section className="min-h-screen snap-start">
             <AboutSection />
           </section>
           <section className="h-screen snap-start snap-always">
             <ProjectsCoverPage />
           </section>
-          <section className="h-screen snap-start snap-always">
+          <section className="min-h-screen snap-start">
             <SirenasAppPage />
           </section>
-          <section className="h-screen snap-start snap-always">
+          <section className="min-h-screen snap-start">
             <SirenasWebAppPage />
           </section>
           <section className="h-screen snap-start snap-always">
@@ -105,7 +105,7 @@ export default function HomePage() {
           <section className="h-screen snap-start snap-always">
             <TechnologiesCover />
           </section>
-          <section className="h-screen snap-start snap-always">
+          <section className="min-h-screen snap-start">
             <LibrariesPage />
           </section>
           <section className="h-screen snap-start snap-always">
@@ -135,8 +135,8 @@ export default function HomePage() {
         <div className="sticky top-0 h-screen overflow-hidden">
           <motion.div
             className="flex h-full"
-            style={{ 
-              width: `${SECTIONS * 100}vw`, 
+            style={{
+              width: `${SECTIONS * 100}vw`,
               x,
               // Suavizado adicional
               willChange: "transform"
