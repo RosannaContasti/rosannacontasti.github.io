@@ -12,7 +12,7 @@
     "bio": "I’m a Front-End Developer focused on creating clear, smooth, and pleasant-to-use interfaces. I enjoy transforming ideas into real experiences, taking care of both the design and the code behind them.\n\nI mainly work with React, React Native, and Next.js, and I especially enjoy bringing projects to life through animations, micro-interactions, and details that truly make a difference. I’m curious, consistent, and I like learning by doing. I’ve worked on real-world projects, collaborating with teams and facing challenges that helped me grow both technically and professionally.\n\nMy goal is to keep evolving as a developer, add value through my work, and build products that feel good from the very first scroll."
   },
   "ProjectsPage": {
-    "coverTitle": ["FEATURED", "PROJECTS"],
+    "coverTitle": ["PROJECTS"],
     "sirenasApp": {
       "title": "SIRENAS\nPROJECT\nAPP",
       "description": "The Sirenas Project App is a mobile application created as part of the Sirenas Project ecosystem, designed to provide a clear and accessible experience for end users.\n\nI worked on the project in both Front-End and Back-End roles, using React Native for interface development and also contributing to the server-side logic.\nOn the front end, I focused on building screens, reusable components, navigation flows, and improving the overall user experience.\nOn the back end, I collaborated on the creation of data signatures, controllers, services, and DAOs, contributing to the implementation and connection of business logic with the mobile application.\n\nThe work was carried out on a real project, in collaboration with a team, adapting to functional and technical requirements that evolved over time."
