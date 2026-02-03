@@ -26,6 +26,8 @@ export default function ContactInfoPage() {
 
         {/* Links con animación */}
         <motion.span
+          onClick={() => window.open("https://github.com/RosannaContasti", "_blank")}
+
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -37,6 +39,7 @@ export default function ContactInfoPage() {
         </motion.span>
 
         <motion.span
+          onClick={() => window.open("https://www.linkedin.com/in/rosanna-contasti/", "_blank")}
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}

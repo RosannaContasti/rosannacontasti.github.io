@@ -10,8 +10,8 @@ export const LibrariesCard = ({
   title: string;
 }) => (
   <motion.div
-    whileHover={{ 
-      y: -8, 
+    whileHover={{
+      y: -8,
       scale: 1.02,
       transition: { duration: 0.3, ease: "easeOut" }
     }}
@@ -25,12 +25,12 @@ export const LibrariesCard = ({
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ 
-            duration: 0.4, 
+          transition={{
+            duration: 0.4,
             delay: index * 0.1,
-            ease: "easeOut" 
+            ease: "easeOut"
           }}
-          className="text-center text-2xl group-hover:text-[#fcb9c0] transition-colors duration-300"
+          className="text-center text-2xl"
         >
           {item}
         </motion.div>
@@ -42,7 +42,7 @@ export const LibrariesCard = ({
       <h2 className="text-3xl font-bold tracking-tight md:tracking-[-0.08em] lg:tracking-[-0.15em]">
         {title.toUpperCase()}
       </h2>
-      <motion.div 
+      <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: "60%" }}
         viewport={{ once: true }}

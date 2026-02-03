@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import TitlePage from "./title/page";
 import AboutSection from "./about/page";
@@ -14,46 +14,27 @@ import ContactCover from "./contact/page";
 import ContactInfoPage from "./contact/contactInfo/page";
 import useIsMobile from "../hooks/useIsMobile";
 
-const SECTIONS = 3.7;
-const SCROLL_SPEED = 5;
+const SECTIONS = 10;
 
 export default function HomePage() {
   const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Scroll progress para desktop (horizontal)
-  const { scrollYProgress: desktopProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Scroll progress para mobile (vertical)
-  const { scrollYProgress: mobileProgress } = useScroll();
-
-  // Desktop: transformación horizontal con spring suave
-  const x = useSpring(
-    useTransform(
-      desktopProgress,
-      [0, 1],
-      ["0%", `-${(SECTIONS - 1) * 100}%`]
-    ),
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-      mass: 0.5
-    }
+  // Transformación horizontal directa sin spring (más preciso)
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0vw", `-${(SECTIONS - 1) * 100}vw`]
   );
 
-  // Barra de progreso aesthetic para ambos
-  const progressBar = useSpring(
-    isMobile ? mobileProgress : desktopProgress,
-    {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001
-    }
-  );
+  // Barra de progreso
+  const progressBar = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   // 🔹 MOBILE → scroll vertical aesthetic
   if (isMobile) {
@@ -65,25 +46,7 @@ export default function HomePage() {
           style={{ scaleX: progressBar }}
         />
 
-        {/* Indicadores laterales (opcional) */}
-        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-3">
-          {[...Array(10)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="w-2 h-2 rounded-full bg-white/30 backdrop-blur-sm"
-              whileHover={{ scale: 1.5, backgroundColor: "rgba(255,255,255,0.8)" }}
-              transition={{ type: "spring", stiffness: 400 }}
-            />
-          ))}
-        </div>
-
-        <main className="
-          h-screen
-          overflow-y-scroll
-          snap-y snap-mandatory
-          scroll-smooth
-          scrollbar-hide
-        ">
+        <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hide">
           <section className="h-screen snap-start snap-always">
             <TitlePage />
           </section>
@@ -99,7 +62,7 @@ export default function HomePage() {
           <section className="min-h-screen snap-start">
             <SirenasWebAppPage />
           </section>
-          <section className="h-screen snap-start snap-always">
+          <section className="min-h-screen snap-start">
             <CRMSirenasPage />
           </section>
           <section className="h-screen snap-start snap-always">
@@ -119,42 +82,67 @@ export default function HomePage() {
     );
   }
 
-  // 🔹 DESKTOP → scroll horizontal aesthetic
+  // 🔹 DESKTOP → scroll horizontal aesthetic (reconstruido)
   return (
     <>
       {/* Barra de progreso aesthetic para desktop */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 z-50 origin-left shadow-lg shadow-purple-500/30"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-black via-gray-500 to-white z-50 origin-left shadow-lg shadow-purple-500/30"
         style={{ scaleX: progressBar }}
       />
-      <section
+
+      {/* Contenedor de scroll con altura controlada */}
+      <div
         ref={containerRef}
         className="relative bg-black"
-        style={{ height: `${(SECTIONS - 1) * SCROLL_SPEED * 100}vh` }}
+        style={{
+          height: `${(SECTIONS - 1) * 100}vh`
+        }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden">
+        {/* Contenedor sticky que mantiene todo en viewport */}
+        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+          {/* Contenedor horizontal con todas las secciones */}
           <motion.div
             className="flex h-full"
             style={{
               width: `${SECTIONS * 100}vw`,
               x,
-              // Suavizado adicional
-              willChange: "transform"
             }}
           >
-            <TitlePage />
-            <AboutSection />
-            <ProjectsCoverPage />
-            <SirenasAppPage />
-            <SirenasWebAppPage />
-            <CRMSirenasPage />
-            <TechnologiesCover />
-            <LibrariesPage />
-            <ContactCover />
-            <ContactInfoPage />
+            {/* Secciones - cada una debe ser exactamente 100vw */}
+            <section className="w-screen h-screen shrink-0">
+              <TitlePage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <AboutSection />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <ProjectsCoverPage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <SirenasAppPage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <SirenasWebAppPage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <CRMSirenasPage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <TechnologiesCover />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <LibrariesPage />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <ContactCover />
+            </section>
+            <section className="w-screen h-screen shrink-0">
+              <ContactInfoPage />
+            </section>
           </motion.div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

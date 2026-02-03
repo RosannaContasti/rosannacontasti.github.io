@@ -9,21 +9,21 @@
   "AboutPage": {
     "greeting": "HI, I'M",
     "name": "ROSANNA",
-    "bio": "I’m a Front-End Developer focused on building clear, smooth, and enjoyable user interfaces. I love turning ideas into real experiences, taking care of both the design and the code behind them. I mainly work with React, React Native, and Next.js, and I especially enjoy bringing projects to life through animations, micro-interactions, and details that truly make a difference. \nI’m curious, consistent, and I enjoy learning by doing. I’ve worked on real projects, collaborating with teams and tackling challenges that helped me grow both technically and professionally. My goal is to keep evolving as a developer, add value through my work, and build products that feel good from the very first scroll."
+    "bio": "I’m a Front-End Developer focused on creating clear, smooth, and pleasant-to-use interfaces. I enjoy transforming ideas into real experiences, taking care of both the design and the code behind them.\n\nI mainly work with React, React Native, and Next.js, and I especially enjoy bringing projects to life through animations, micro-interactions, and details that truly make a difference. I’m curious, consistent, and I like learning by doing. I’ve worked on real-world projects, collaborating with teams and facing challenges that helped me grow both technically and professionally.\n\nMy goal is to keep evolving as a developer, add value through my work, and build products that feel good from the very first scroll."
   },
   "ProjectsPage": {
     "coverTitle": ["FEATURED", "PROJECTS"],
     "sirenasApp": {
       "title": "SIRENAS\nPROJECT\nAPP",
-      "description": "The Sirenas Project App was developed to offer users a smooth and intuitive mobile experience, facilitating access to key content, functionalities, and communications of the project."
+      "description": "The Sirenas Project App is a mobile application created as part of the Sirenas Project ecosystem, designed to provide a clear and accessible experience for end users.\n\nI worked on the project in both Front-End and Back-End roles, using React Native for interface development and also contributing to the server-side logic.\nOn the front end, I focused on building screens, reusable components, navigation flows, and improving the overall user experience.\nOn the back end, I collaborated on the creation of data signatures, controllers, services, and DAOs, contributing to the implementation and connection of business logic with the mobile application.\n\nThe work was carried out on a real project, in collaboration with a team, adapting to functional and technical requirements that evolved over time."
     },
     "sirenasWeb": {
       "title": "WEB APP SIRENAS.TV",
-      "description": "Complete web platform for streaming and multimedia content management. Built with modern technologies to ensure an optimal and scalable user experience."
+      "description": "Sirenas.tv Web App is the web application of the Sirenas Project ecosystem, developed to be used from the browser and designed as a direct complement to the mobile app.\n\nThe web app works as a central access platform where users can consult information, manage content, and operate key system functionalities more comfortably from desktop or tablet devices. It focuses on providing a clear, fast, and responsive experience, maintaining visual and functional consistency with the mobile app.\n\nFrom a technical perspective, it was developed with React, consuming REST APIs from the project’s backend. The work included both frontend tasks (interfaces, flows, components, and user experience) and backend contributions, participating in the creation of controllers, services, DAOs, and data signatures to ensure proper communication between the web app and the server."
     },
     "crmSirenas": {
       "title": "SIRENAS PROJECT CRM",
-      "description": "CRM for customer and sales management at Sirenas, a company dedicated to selling marine products. This CRM allows users to manage contacts, sales opportunities, interaction tracking, and report generation to optimize the sales process."
+      "description": "The Sirenas Project CRM is a web application designed for internal project management, allowing information to be managed, organized, and visualized in a centralized way.\n\nI took part in the development with both Front-End and Back-End responsibilities, working with React to build the web interface and contributing to the server-side implementation.\nOn the front end, I developed views, reusable components, and user flows aimed at internal users, prioritizing visual clarity and usability.\nOn the back end, I worked on creating data signatures, controllers, services, and DAOs, collaborating on structuring business logic and data handling.\n\nThe project involved collaborative work, constant iterations, and a strong focus on code quality as well as the final user experience."
     }
   },
   "TechnologiesPage": {
