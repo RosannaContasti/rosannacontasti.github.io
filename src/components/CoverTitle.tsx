@@ -27,13 +27,17 @@ const item: Variants = {
 };
 
 const CoverTitle = ({ lines }: { lines: string[] }) => (
+
+
+
+  
   <motion.div
     variants={container}
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.6 }}
     className="flex flex-col items-center   
-    text-[clamp(3rem,10vw,16rem)]
+    text-[clamp(2.5rem,10vw,16rem)]
     leading-none
     md:tracking-[-0.08em]
     lg:tracking-[-0.15em]"
