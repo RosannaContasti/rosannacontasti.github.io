@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import TitlePage from "./title/page";
 import AboutSection from "./about/page";
 import ProjectsCoverPage from "./projects/page";
@@ -36,15 +36,127 @@ export default function HomePage() {
   // Barra de progreso
   const progressBar = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  // Drag-to-scroll con momentum
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+  const lastX = useRef(0);
+  const lastTime = useRef(0);
+  const velocity = useRef(0);
+  const momentumRaf = useRef<number>(0);
+
+  useEffect(() => {
+    if (isMobile) return;
+    const el = stickyRef.current;
+    if (!el) return;
+
+    const getScrollRatio = () =>
+      (document.body.scrollHeight - window.innerHeight) /
+      (window.innerWidth * (SECTIONS - 1));
+
+    const stopMomentum = () => {
+      if (momentumRaf.current) {
+        cancelAnimationFrame(momentumRaf.current);
+        momentumRaf.current = 0;
+      }
+    };
+
+    const startMomentum = () => {
+      const decel = 0.95;
+      const minVelocity = 0.5;
+      const ratio = getScrollRatio();
+
+      const tick = () => {
+        velocity.current *= decel;
+        if (Math.abs(velocity.current) < minVelocity) return;
+        window.scrollBy(0, -velocity.current * ratio);
+        momentumRaf.current = requestAnimationFrame(tick);
+      };
+      momentumRaf.current = requestAnimationFrame(tick);
+    };
+
+    const onPointerDown = (e: PointerEvent) => {
+      // No capturar si es click en un link/boton/input
+      if ((e.target as HTMLElement).closest("a, button, input, textarea, [role='button']")) return;
+
+      stopMomentum();
+      isDragging.current = true;
+      dragStartX.current = e.clientX;
+      dragStartScroll.current = window.scrollY;
+      lastX.current = e.clientX;
+      lastTime.current = Date.now();
+      velocity.current = 0;
+
+      el.setPointerCapture(e.pointerId);
+      document.documentElement.style.scrollBehavior = "auto";
+      document.body.style.cursor = "grabbing";
+      document.body.style.userSelect = "none";
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDragging.current) return;
+      e.preventDefault();
+
+      const now = Date.now();
+      const dt = now - lastTime.current;
+      const dx = e.clientX - lastX.current;
+
+      if (dt > 0) {
+        velocity.current = dx / dt * 16; // normalizar a ~60fps
+      }
+
+      lastX.current = e.clientX;
+      lastTime.current = now;
+
+      const totalDelta = dragStartX.current - e.clientX;
+      const ratio = getScrollRatio();
+      window.scrollTo(0, dragStartScroll.current + totalDelta * ratio);
+    };
+
+    const onPointerUp = (e: PointerEvent) => {
+      if (!isDragging.current) return;
+      isDragging.current = false;
+
+      el.releasePointerCapture(e.pointerId);
+      document.documentElement.style.scrollBehavior = "";
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+
+      // Lanzar momentum si hay velocidad suficiente
+      if (Math.abs(velocity.current) > 1) {
+        startMomentum();
+      }
+    };
+
+    // Bloquear drag nativo de imágenes/links para que no interfiera
+    const onDragStart = (e: Event) => e.preventDefault();
+
+    el.addEventListener("pointerdown", onPointerDown);
+    el.addEventListener("pointermove", onPointerMove);
+    el.addEventListener("pointerup", onPointerUp);
+    el.addEventListener("pointercancel", onPointerUp);
+    el.addEventListener("dragstart", onDragStart);
+
+    return () => {
+      stopMomentum();
+      el.removeEventListener("pointerdown", onPointerDown);
+      el.removeEventListener("pointermove", onPointerMove);
+      el.removeEventListener("pointerup", onPointerUp);
+      el.removeEventListener("pointercancel", onPointerUp);
+      el.removeEventListener("dragstart", onDragStart);
+    };
+  }, [isMobile]);
+
   // 🔹 MOBILE → scroll vertical aesthetic
   if (isMobile) {
     return (
       <>
         {/* Barra de progreso aesthetic */}
-        <motion.div
+        {/* <motion.div
           className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 z-50 origin-left shadow-lg shadow-purple-500/50"
           style={{ scaleX: progressBar }}
-        />
+        /> */}
 
         <main className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hide">
           <section className="h-screen snap-start snap-always">
@@ -100,7 +212,7 @@ export default function HomePage() {
         }}
       >
         {/* Contenedor sticky que mantiene todo en viewport */}
-        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+        <div ref={stickyRef} className="sticky top-0 h-screen w-screen overflow-hidden cursor-grab active:cursor-grabbing touch-none">
           {/* Contenedor horizontal con todas las secciones */}
           <motion.div
             className="flex h-full"

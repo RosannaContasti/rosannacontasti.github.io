@@ -96,66 +96,75 @@ export default function CRMSirenasPage() {
         </motion.div> */}
       </motion.div>
 
-      {/* Contenedor de imágenes - Mobile First con Layout Bento */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="relative z-10 flex flex-col lg:w-1/2 gap-6 lg:gap-8 p-6 lg:p-12 justify-center"
-      >
-        {/* Imagen 1 - Principal */}
+      {/* Contenedor de imágenes - Overlapping frames */}
+      <div className="relative z-10 flex-1 h-auto lg:h-screen min-h-[60vh] lg:min-h-0 overflow-hidden py-8 lg:py-0">
+        {/* Imagen 1 - Arriba izquierda */}
         <motion.div
-          initial={{ opacity: 0, x: 50, rotate: 2 }}
-          whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          initial={{ opacity: 0, y: -50, rotate: -3 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.02, rotate: -1 }}
-          className="relative w-full lg:w-[75%] self-start group"
+          whileHover={{ scale: 1.02, rotate: 1, transition: { duration: 0.3 } }}
+          className="absolute top-12 left-8 lg:top-16 lg:left-12 w-[60%] lg:w-[55%] drop-shadow-2xl group cursor-pointer"
         >
-          {/* Glow effect */}
-          <div className="absolute -inset-4 bg-[#fcb9c0]/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          <div className="relative overflow-hidden rounded-xl shadow-2xl shadow-black/10 border border-neutral-200">
+          <div className="bg-white p-3 lg:p-4 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-300 group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.2)]">
             <Image
               src="/crm1.png"
               alt="CRM Sirenas Dashboard"
               width={800}
               height={1000}
-              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-auto rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
             />
-
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#fcb9c0]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="mt-2 lg:mt-3 flex justify-between items-center px-2">
+              <div className="flex gap-1.5">
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+              </div>
+              <span className="text-[10px] text-black/30 tracking-wider uppercase font-medium">
+                Dashboard
+              </span>
+            </div>
           </div>
         </motion.div>
 
-        {/* Imagen 2 - Secundaria */}
+        {/* Imagen 2 - Abajo derecha */}
         <motion.div
-          initial={{ opacity: 0, x: -50, rotate: -2 }}
-          whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          initial={{ opacity: 0, y: 50, rotate: 3 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          transition={{ duration: 1, delay: 0.5, type: "spring", stiffness: 100 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.02, rotate: 1 }}
-          className="relative w-full lg:w-[65%] self-end group"
+          whileHover={{ scale: 1.02, rotate: -1, transition: { duration: 0.3 } }}
+          className="absolute bottom-12 right-4 lg:bottom-12 lg:right-8 w-[60%] lg:w-[55%] drop-shadow-2xl group cursor-pointer"
         >
-          {/* Glow effect */}
-          <div className="absolute -inset-4 bg-[#fcb9c0]/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          <div className="relative overflow-hidden rounded-xl shadow-2xl shadow-black/10 border border-neutral-200">
+          <div className="bg-white p-3 lg:p-4 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-300 group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.2)]">
             <Image
               src="/crm3.png"
               alt="CRM Sirenas Interface"
               width={800}
               height={1000}
-              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-auto rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
             />
-
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#fcb9c0]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="mt-2 lg:mt-3 flex justify-between items-center px-2">
+              <div className="flex gap-1.5">
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+                <span className="h-1.5 w-1.5 bg-black/20 rounded-full" />
+              </div>
+              <span className="text-[10px] text-black/30 tracking-wider uppercase font-medium">
+                Interface
+              </span>
+            </div>
           </div>
         </motion.div>
-      </motion.div>
+
+        {/* Elemento decorativo flotante */}
+        <motion.div
+          animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 right-1/4 w-32 h-32 border-2 border-neutral-200/30 rounded-full -z-10"
+        />
+      </div>
 
       {/* Decoración de fondo - Grid sutil */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
